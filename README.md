@@ -16,6 +16,10 @@ The repo is structured as:
 -   `paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper. 
 -   `scripts` contains the R scripts used to simulate, download and clean data.
 
+## Data Extraction
+
+The data was obtained from https://gss.norc.org/
+
 
 ## Statement on LLM usage
 
