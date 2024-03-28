@@ -24,4 +24,4 @@ The data was obtained from https://gss.norc.org/
 
 ## Statement on LLM usage
 
-No LLM was used.
+ChatGPT was used for finetuning and proofreading.
