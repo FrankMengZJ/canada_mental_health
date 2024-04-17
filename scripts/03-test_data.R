@@ -13,6 +13,6 @@ library(tidyverse)
 library(arrow)
 
 #### Test data ####
-analysis_data <- read_parquet(file = "data/analysis_data.parquet")
-
-distinct(analysis_data,REF_DATE)
+mental_health_indicators <- read_parquet(file = "data/analysis_data/mental_health_indicators.parquet")
+province <- read_parquet(file = "data/analysis_data/province.parquet")
+sociodemographic_characteristics <- read_parquet(file = "data/analysis_data/sociodemographic_characteristics.parquet")
