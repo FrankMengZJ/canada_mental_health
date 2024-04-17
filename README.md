@@ -10,7 +10,7 @@ To use this folder, click the green "Code" button", then "Download ZIP". Move th
 
 The repo is structured as:
 
--   `data/raw_data` contains the raw data as obtained from https://gss.norc.org/.
+-   `data/raw_data` contains the raw data as obtained from https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a and https://www.statcan.gc.ca/en/start.
 -   `data/analysis_data` contains the cleaned dataset that was constructed.
 -   `model` contains fitted models. 
 -   `other` contains relevant literature, details about LLM chat interactions, and sketches.
@@ -19,7 +19,7 @@ The repo is structured as:
 
 ## Data Extraction
 
-The data was obtained from https://gss.norc.org/
+The Mental health indicators data was obtained from https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a . The 'Perceived mental health, by gender and other selected sociodemographic characteristics' and 'Perceived mental health, by gender and province' datasets were obtained from https://www.statcan.gc.ca/en/start , their table ids are 45-10-0080-01 and 45-10-0079-01.
 
 
 ## Statement on LLM usage

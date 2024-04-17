@@ -10,6 +10,9 @@
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
+library(arrow)
 
 #### Test data ####
+analysis_data <- read_parquet(file = "data/analysis_data.parquet")
+
+distinct(analysis_data,REF_DATE)
