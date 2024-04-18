@@ -20,4 +20,14 @@ sociodemographic_characteristics <- read_parquet(file = "data/analysis_data/soci
 #### Test data ####
 
 age
-variable.names(age)
+distinct(age,REF_DATE)
+distinct(age, Indicators)
+
+filter(mental_health_indicators,Indicators == "Perceived mental health, fair or poor", GEO == "Canada", Age == "Total, 15 years and over", Sex == "Both sexes")
+
+filter(age, Indicators == "Perceived mental health, fair or poor" & Age == "Total, 12 years and over" & Sex == "Both sexes" & GEO == "Canada (excluding territories)")
+
+filter(province, GEO == "Canada (excluding territories)", Gender == "Total, all persons", Indicators == "Fair or poor perceived mental health")
+
+filter(sociodemographic_characteristics, GEO == "Canada (excluding territories)", Gender == "Total, all persons", Sociodemographic_characteristics == "Total, 15 years and over", Indicators == "Fair or poor perceived mental health")
+

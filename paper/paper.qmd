@@ -71,47 +71,21 @@ The Perceived Mental Health by Age Group dataset spans from 2015 to 2022 and uti
 ### Perceived Mental Health by Gender and Sociodemographic Characteristics
 The data for 2021 to 2023 from this dataset is sourced from the Canadian Community Health Survey (CCHS), which meticulously gathers data on mental health perceptions influenced by gender and other sociodemographic factors such as income, education, and employment. This survey selects participants through a stratified sampling design aimed at capturing diverse sociodemographic landscapes across Canada, enhancing the dataset's relevance for analyzing intersectional impacts on mental health.
 
-## Detailed Measurement Discussion
+### Detailed Measurement Discussion
 
-Statistics Canada employs rigorous methodologies to ensure data accuracy and reliability. For example, the survey instruments are tested extensively before deployment to ensure they accurately capture the intended data. Additionally, data collectors are trained to adhere to strict guidelines to maintain consistency and reduce potential biases during data collection.
+Both the CCHS and other Statistics Canada surveys employ rigorous data verification and validation processes. Quality control measures include logical checks during data collection and detailed follow-ups for non-responses. Post-stratification weighting adjusts for any discrepancies due to non-response rates, and seasonal adjustments are made to account for the timing of data collection. These methodologies ensure that the data are robust, reliable, and accurately reflect the Canadian population’s health status.
 
-The sample for each dataset is designed to be representative of the Canadian population, stratified by key demographic variables to ensure comprehensive coverage across different regions and groups. This stratification helps in understanding specific sub-population dynamics within the broader national context. Data is then weighted to adjust for potential non-response biases and to represent the population accurately.
+The CCHS's use of health-specific, standardized questionnaires is designed to capture nuanced information on health determinants and outcomes, which is critical for public health research and intervention planning. Conversely, Statistics Canada’s broader surveys provide comprehensive data across a wider range of topics, offering valuable insights into the interplay between health and other societal factors.
 
-Despite these rigorous methods, the reliability of self-reported data can sometimes be challenging to assess due to the subjective nature of mental health perceptions. Statistics Canada addresses this by implementing multiple stages of data verification and validation, including automated data checks and manual reviews by experts. Furthermore, unusual or outlier responses undergo additional scrutiny to confirm their validity.
+### Comparison of Data Collection Specifics
 
+CCHS is highly adaptable with its questionnaire content, allowing for the inclusion of regional health issues of specific interest, which is crucial for targeted public health interventions. This adaptability in data collection, combined with its detailed focus on health, makes CCHS uniquely suited for studies like ours that require specific health-related insights.
 
-
-# Model
-
-The goal of our modelling strategy is twofold. Firstly,...
-
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
-
-## Model set-up
-
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.
-
-```{=tex}
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
-```
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
-
-### Model justification
-
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
+In summary, the methodologies used by the Canadian Community Health Survey and other Statistics Canada surveys are both robust and tailored to meet different informational needs. Understanding these methodologies helps in accurately interpreting the data collected on mental health perceptions, ensuring that research findings are based on reliable and representative data.
 
 # Results
 
-Our results are summarized in @tbl-modelresults.
+Our results are summarized in .
 
 ```{r}
 #| echo: false
@@ -119,10 +93,12 @@ Our results are summarized in @tbl-modelresults.
 #| warning: false
 #| message: false
 
-library(rstanarm)
+temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & Age == "Total, 12 years and over" & Sex == "Both sexes" & GEO == "Canada (excluding territories)")
+ggplot(temp, aes(x=REF_DATE,y=VALUE))+
+  geom_line()+
+  labs(x = "Year", y = "Percentage", title = "Perceived mental health, fair or poor, all people over 12 years old in Canada") +
+  theme_minimal()
 
-first_model <-
-  readRDS(file = here::here("models/first_model.rds"))
 ```
 
 ```{r}
@@ -154,64 +130,6 @@ If my paper were 10 pages, then should be be at least 2.5 pages. The discussion 
 ## Weaknesses and next steps
 
 Weaknesses and next steps should also be included.
-
-\newpage
-
-\appendix
-
-# Appendix {.unnumbered}
-
-# Additional data details
-
-# Model details {#sec-model-details}
-
-## Posterior predictive check
-
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows...
-
-```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
-
-pp_check(first_model) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-posterior_vs_prior(first_model) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
-```
-
-## Diagnostics
-
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
-
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
-
-plot(first_model, "trace")
-
-plot(first_model, "rhat")
-```
 
 \newpage
 
