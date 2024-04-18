@@ -43,13 +43,13 @@ There are four datasets used for this paper, including the 'Mental health indica
 
 ## Mental Health Indicator Dataset
 
-The mental health indicator dataset 
+The mental health indicator dataset records 
 ```{r}
 #| label: tbl-1
 #| fig-cap: Mental Health Indicator Dataset 
 #| echo: false
 
-kable(head(select(mental_health_indicators,GEO),5))
+kable(head(mental_health_indicators,5))
 ```
 
 Talk more about it.
