@@ -12,13 +12,12 @@
 library(tidyverse)
 library(arrow)
 
-#### Test data ####
 age <- read_parquet(file = "data/analysis_data/age.parquet")
 mental_health_indicators <- read_parquet(file = "data/analysis_data/mental_health_indicators.parquet")
 province <- read_parquet(file = "data/analysis_data/province.parquet")
 sociodemographic_characteristics <- read_parquet(file = "data/analysis_data/sociodemographic_characteristics.parquet")
 
-province
+#### Test data ####
 
-print(province, n=10)
-variable.names(province)
+age
+variable.names(age)
