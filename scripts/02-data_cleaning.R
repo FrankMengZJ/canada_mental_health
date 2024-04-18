@@ -11,11 +11,12 @@
 library(tidyverse)
 library(arrow)
 #### Clean data ####
-mental_health_indicators <- read_csv("data/raw_data/mental_health_indicators.csv")
-province <- read_csv("data/raw_data/province.csv")
-sociodemographic_characteristics <- read_csv("data/raw_data/sociodemographic_characteristics.csv")
+mental_health_indicators <- read_csv("data/raw_data/13100465.csv")
+province <- read_csv("data/raw_data/45100079.csv")
+sociodemographic_characteristics <- read_csv("data/raw_data/45100080.csv")
 
-
+province
+distinct(province,GEO)
 
 cleaned_data <- 
   filter(mental_health_indicators, Characteristics == 'Number of persons'| Characteristics == 'Percent' )

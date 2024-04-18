@@ -1,10 +1,9 @@
 ---
-title: "My title"
+title: "Beyond Numbers: The Evolution of Mental Health in Canada Over Two Decades"
 subtitle: "My subtitle if needed"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+  - Zijun Meng
+thanks: "Code and data are available at: https://github.com/FrankMengZJ/canada_mental_health/"
 date: today
 date-format: long
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
@@ -22,14 +21,15 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-
 # Introduction
 
-You can and should cross-reference sections and sub-sections. We use @citeR and @rohan.
+Mental health has increasingly become a focal point of public health discussions globally, and Canada is no exception. Over the last two decades, shifts in societal attitudes, healthcare policies, and demographic dynamics have contributed significantly to changes in the mental health landscape. The Canadian Mental Health Association highlights a growing crisis, with one in five Canadians experiencing a mental health problem or illness each year, underscoring the critical need for comprehensive research into this area (CAMH, 2023). *Don't forget to cite*
 
-The remainder of this paper is structured as follows. @sec-data....
+This paper seeks to examine the evolution of mental health in Canada over the past twenty years, focusing on how sociodemographic factors such as age, gender, and geographic location influence mental health trends. Despite extensive studies in mental health, there remains a significant gap in longitudinal analyses that connect these shifts to broader sociodemographic changes. This study aims to fill this gap by leveraging historical data to provide a detailed overview of the trends and factors that have shaped the mental health landscape in Canada during this period.
 
+In conducting this research, we utilized data from various national databases, analyzing changes in mental health indicators across different demographics from 2002 to 2022. This approach not only provides a comprehensive view of the historical trends but also highlights the critical drivers behind these changes. Although the findings are pending detailed analysis, the research is poised to offer insights into the effectiveness of past interventions and the need for tailored future strategies in mental health services.
 
+Understanding these trends is crucial for policymakers, healthcare providers, and community leaders to develop targeted interventions that address the unique challenges faced by diverse groups within Canada. The structure of the paper is as follows: Section 1 introduces the study’s background and objectives; @sec-data describes the methodology and data sources used; Section 3 presents the preliminary results; followed by a discussion in Section 4 of the implications of these findings for current and future mental health policies.
 
 # Data {#sec-data}
 
@@ -70,9 +70,7 @@ analysis_data |>
        y = "Wing length (mm)")
 ```
 
-Talk way more about it. 
-
-
+Talk way more about it.
 
 # Model
 
@@ -82,8 +80,9 @@ Here we briefly describe the Bayesian analysis model used to investigate... Back
 
 ## Model set-up
 
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
+Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.
 
+```{=tex}
 \begin{align} 
 y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
 \mu_i &= \alpha + \beta_i + \gamma_i\\
@@ -92,16 +91,14 @@ y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
 \gamma &\sim \mbox{Normal}(0, 2.5) \\
 \sigma &\sim \mbox{Exponential}(1)
 \end{align}
-
+```
 We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
-
 
 ### Model justification
 
 We expect a positive relationship between the size of the wings and time spent aloft. In particular...
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
-
 
 # Results
 
@@ -135,14 +132,11 @@ modelsummary::modelsummary(
 )
 ```
 
-
-
-
 # Discussion
 
 ## First discussion point {#sec-first-point}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
 ## Second discussion point
 
@@ -156,8 +150,7 @@ Weaknesses and next steps should also be included.
 
 \appendix
 
-# Appendix {-}
-
+# Appendix {.unnumbered}
 
 # Additional data details
 
@@ -167,7 +160,7 @@ Weaknesses and next steps should also be included.
 
 In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
 
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
+In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows...
 
 ```{r}
 #| eval: true
@@ -211,11 +204,6 @@ plot(first_model, "trace")
 plot(first_model, "rhat")
 ```
 
-
-
 \newpage
 
-
 # References
-
-
