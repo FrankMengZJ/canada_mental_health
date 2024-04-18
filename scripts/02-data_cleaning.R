@@ -14,6 +14,7 @@ library(arrow)
 mental_health_indicators <- read_csv("data/raw_data/13100465.csv")
 province <- read_csv("data/raw_data/45100079.csv")
 sociodemographic_characteristics <- read_csv("data/raw_data/45100080.csv")
+age <- read_csv("data/raw_data/13100096.csv")
 
 province
 distinct(province,GEO)
@@ -26,4 +27,4 @@ cleaned_data
 write_parquet(x=cleaned_data,sink="data/analysis_data/mental_health_indicators.parquet")
 write_parquet(x=province,sink="data/analysis_data/province.parquet")
 write_parquet(x=sociodemographic_characteristics,sink="data/analysis_data/sociodemographic_characteristics.parquet")
-
+write_parquet(x=age,sink="data/analysis_data/age.parquet")

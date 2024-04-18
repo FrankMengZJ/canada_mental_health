@@ -18,3 +18,6 @@ province <- read_parquet(file = "data/analysis_data/province.parquet")
 sociodemographic_characteristics <- read_parquet(file = "data/analysis_data/sociodemographic_characteristics.parquet")
 
 province
+
+print(province, n=10)
+variable.names(province)
