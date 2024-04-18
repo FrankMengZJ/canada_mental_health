@@ -49,7 +49,7 @@ The mental health indicator dataset
 #| fig-cap: Mental Health Indicator Dataset 
 #| echo: false
 
-kable(head(mental_health_indicators,5))
+kable(head(select(mental_health_indicators,GEO),5))
 ```
 
 Talk more about it.
