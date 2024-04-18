@@ -1,5 +1,5 @@
 ---
-title: "Beyond Numbers: The Evolution of Mental Health in Canada Over Two Decades"
+title: "Navigating Through Crisis: The Influence of COVID-19 on Canada’s Mental Health Problem"
 subtitle: "My subtitle if needed"
 author: 
   - Zijun Meng
@@ -18,35 +18,38 @@ bibliography: references.bib
 #| message: false
 
 library(tidyverse)
-library(palmerpenguins)
+library(arrow)
+library(here)
+library(knitr)
+age <- read_parquet(file = here("data/analysis_data/age.parquet"))
+mental_health_indicators <- read_parquet(file = here( "data/analysis_data/mental_health_indicators.parquet"))
+province <- read_parquet(file = here("data/analysis_data/province.parquet"))
+sc <- read_parquet(file = here("data/analysis_data/sociodemographic_characteristics.parquet"))
 ```
 
 # Introduction
 
-Mental health has increasingly become a focal point of public health discussions globally, and Canada is no exception. Over the last two decades, shifts in societal attitudes, healthcare policies, and demographic dynamics have contributed significantly to changes in the mental health landscape. The Canadian Mental Health Association highlights a growing crisis, with one in five Canadians experiencing a mental health problem or illness each year, underscoring the critical need for comprehensive research into this area (CAMH, 2023). *Don't forget to cite*
+The global COVID-19 pandemic has had a profound impact on public health, particularly in the realm of mental health. In Canada, the challenges brought on by the pandemic have intensified existing mental health issues and revealed significant vulnerabilities within the healthcare system (Government of Canada, 2021) *cite this*. This paper explores the effects of the COVID-19 pandemic on mental health trends in Canada, with a particular focus on the shifts in prevalence and the disparities in healthcare access observed across different sociodemographic groups during this period.
 
-This paper seeks to examine the evolution of mental health in Canada over the past twenty years, focusing on how sociodemographic factors such as age, gender, and geographic location influence mental health trends. Despite extensive studies in mental health, there remains a significant gap in longitudinal analyses that connect these shifts to broader sociodemographic changes. This study aims to fill this gap by leveraging historical data to provide a detailed overview of the trends and factors that have shaped the mental health landscape in Canada during this period.
+Research on the long-term mental health trends during the COVID-19 pandemic is sparse, particularly studies that provide a comprehensive analysis across various sociodemographic groups. Most existing studies have concentrated on immediate or short-term impacts within narrowly defined populations. This study aims to bridge this gap by conducting a detailed examination of how factors such as age, gender, and geographic location have influenced mental health outcomes across the broader Canadian population during the pandemic (CAMH, 2020) *cite this*.
 
-In conducting this research, we utilized data from various national databases, analyzing changes in mental health indicators across different demographics from 2002 to 2022. This approach not only provides a comprehensive view of the historical trends but also highlights the critical drivers behind these changes. Although the findings are pending detailed analysis, the research is poised to offer insights into the effectiveness of past interventions and the need for tailored future strategies in mental health services.
+The methodology of this paper includes a comparative analysis of data from national health surveys, focusing on the period from 2019 to the latest available data in 2021. This approach allows us to observe both pre-pandemic and during-pandemic mental health indicators, identifying significant trends and changes. Preliminary observations suggest that there are significant disparities in the impact of the pandemic on mental health, which vary widely among different demographic groups.
 
-Understanding these trends is crucial for policymakers, healthcare providers, and community leaders to develop targeted interventions that address the unique challenges faced by diverse groups within Canada. The structure of the paper is as follows: Section 1 introduces the study’s background and objectives; @sec-data describes the methodology and data sources used; Section 3 presents the preliminary results; followed by a discussion in Section 4 of the implications of these findings for current and future mental health policies.
+This research is critical not only for academic purposes but also for policymakers and healthcare providers planning interventions for ongoing and future public health crises. The structure of the paper is as follows: Section 1 introduces the background and literature relevant to the study; Section 2 outlines the methodology and data sources; Section 3 presents the analysis of the findings; Section 4 discusses the implications of these findings for mental health policy and practice in Canada.
 
 # Data {#sec-data}
 
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+There are four datasets used for this paper, including the 'Mental health indicator' dataset which contains data related to mental health in 2002 and 2012, 'Perceived mental health, by age group' dataset which data between 2015 and 2022, 'Perceived mental health, by gender and other selected sociodemographic characteristics' and 'Perceived mental health, by gender and province' datasets both contain data between 2021 and 2023, but have different variables.
 
+## Mental Health Indicator Dataset
+
+The mental health indicator dataset 
 ```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
+#| label: tbl-1
+#| fig-cap: Mental Health Indicator Dataset 
 #| echo: false
 
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+kable(head(mental_health_indicators,5))
 ```
 
 Talk more about it.

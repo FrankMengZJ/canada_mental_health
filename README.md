@@ -10,7 +10,7 @@ To use this folder, click the green "Code" button", then "Download ZIP". Move th
 
 The repo is structured as:
 
--   `data/raw_data` contains the raw data as obtained from https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a and https://www.statcan.gc.ca/en/start.
+-   `data/raw_data` contains the raw data as obtained from *Change to DOI later* https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a and https://www.statcan.gc.ca/en/start.
 -   `data/analysis_data` contains the cleaned dataset that was constructed.
 -   `model` contains fitted models. 
 -   `other` contains relevant literature, details about LLM chat interactions, and sketches.
