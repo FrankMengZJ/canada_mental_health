@@ -52,28 +52,54 @@ The mental health indicator dataset records
 kable(head(mental_health_indicators,5))
 ```
 
-Talk more about it.
+# Data {#sec-data}
 
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
+## Overview of Datasets
 
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
-#| message: false
+The research utilizes four pivotal datasets sourced, each providing distinct insights into the mental health situation of Canada. These datasets were chosen due to their comprehensive coverage, relevance to the research questions, and the credibility of the source.
 
-analysis_data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
+### Datasets Description
 
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
-```
+#### Mental Health Indicator Dataset (`mental_health_indicators.csv`)
+This dataset covers the years 2002 and 2012 and includes variables such as the prevalence of specific mental health conditions, access to mental health services, and outcomes of mental health interventions. The data provides a snapshot of mental health status at two points a decade apart, enabling an analysis of trends and changes over time.
 
-Talk way more about it.
+Source: [Statistics Canada - Mental Health Indicator Dataset](https://doi.org/10.25318/4510008001-eng)
+
+#### 2. Perceived Mental Health, by Age Group (`age.csv`)
+Spanning from 2015 to 2022, this dataset details the perceived mental health statuses across different age cohorts. Variables include age-specific perceptions and reported mental health conditions, allowing for an age-wise analysis pertinent to assessing generational impacts on mental health, especially pre- and post-COVID-19.
+
+Source: [Statistics Canada - Perceived Mental Health by Age Group](https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=3226)
+
+#### 3. Perceived Mental Health, by Gender and Sociodemographic Characteristics (`sc.csv`)
+Capturing data from 2021 to 2023, this dataset includes detailed breakdowns by gender along with other sociodemographic factors such as socioeconomic status, education, and employment. These variables are crucial for understanding the intersectional impacts of various social determinants on mental health.
+
+Source: [Statistics Canada - Survey on Mental Health by Sociodemographic Characteristics](https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=5354)
+
+#### 4. Perceived Mental Health, by Gender and Province (`province.csv`)
+Also covering the period from 2021 to 2023, this dataset provides a geographic breakdown of mental health perceptions across Canadian provinces, categorized by gender. It enables a regional analysis which is essential for identifying area-specific challenges and needs in mental health services.
+
+Source: [Open Canada - Perceived Mental Health by Province](https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a)
+
+## Data Selection Rationale
+
+These datasets were selected over other potential sources due to their direct relevance to the research objectives, encompassing both specific and broad factors influencing mental health. They provide both longitudinal data and recent snapshots that are vital for understanding the ongoing impacts of the COVID-19 pandemic on mental health across diverse populations. The chosen datasets offer the most current and comprehensive data available from a reliable national source, ensuring the robustness and relevance of the analysis.
+
+## Data Exploration and Summary Statistics
+
+*For each dataset, a series of descriptive statistics and graphical analyses will be presented.* These will include:
+- **Distribution graphs** for each variable to understand the data spread and central tendencies.
+- **Cross-tabulations and correlation matrices** to explore relationships between variables.
+- **Summary statistics tables** summarizing key metrics such as mean, median, mode, range, and standard deviation for each variable.
+
+The detailed graphs and tables will be included in the main text or appendices, depending on the level of detail. Each figure and table will be accompanied by a discussion interpreting the findings and their implications for understanding mental health trends in Canada.
+
+## Data Preparation
+
+The datasets underwent essential cleaning steps including handling missing values, correcting any inconsistencies in data reporting, and standardizing variable formats across datasets to ensure compatibility for analysis. Variables of interest were constructed based on raw data to better align with the research questions, such as aggregating individual responses into broader categories relevant to the study.
+
+The thorough examination and explanation of variables, alongside the visual presentation of the data, ensure a comprehensive understanding of the datasets and support the reliability and validity of the subsequent analysis.
+
+
 
 # Model
 
