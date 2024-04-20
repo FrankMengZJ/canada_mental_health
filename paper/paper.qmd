@@ -38,24 +38,11 @@ The study addresses the gap in longitudinal mental health research, particularly
 The significance of this research lies in its contribution to the evidence base informing mental health policy and practice. By identifying the demographic factors associated with varying mental health outcomes, the study aids policymakers and healthcare providers in developing tailored strategies to address the unique challenges faced by diverse groups within Canada. 
 *TBD*
 
-# Data {#sec-data}
 
-There are four datasets used for this paper, including the 'Mental health indicator' dataset which contains data related to mental health in 2002 and 2012, 'Perceived mental health, by age group' dataset which data between 2015 and 2022, 'Perceived mental health, by gender and other selected sociodemographic characteristics' and 'Perceived mental health, by gender and province' datasets both contain data between 2021 and 2023, but have different variables.
-
-## Mental Health Indicator Dataset
-
-The mental health indicator dataset records 
-```{r}
-#| label: tbl-1
-#| fig-cap: Mental Health Indicator Dataset 
-#| echo: false
-
-kable(head(mental_health_indicators,5))
-```
 
 # Data {#sec-data}
 
-This study utilizes four carefully curated datasets from Statistics Canada, each providing valuable insights into the mental health perceptions of Canadians. These datasets are pivotal for understanding the evolution of mental health across different demographics and geographical regions from 2002 to 2023.
+This study uses four carefully curated datasets from Statistics Canada, each providing valuable insights into the mental health perceptions of Canadians. These datasets are pivotal for understanding the evolution of mental health across different demographics and geographical regions from 2002 to 2023.
 
 ## Overview of Datasets
 
@@ -64,6 +51,16 @@ The data for this research come from national surveys conducted by Statistics Ca
 
 ### Mental Health Indicators Dataset
 Data from 2002 and 2012 in the Mental Health Indicators Dataset were derived from national health databases, capturing key statistics on the prevalence of mental disorders and utilization of mental health services. The information is gathered through comprehensive health surveys and administrative records, providing robust measures of mental health status and service outcomes.
+
+@tbl-1 shows the first 5 rows in the dataset, REF_DATE stands for the time that the data was gathered, GEO denotes the geographical ,
+
+```{r}
+#| label: tbl-1
+#| tbl-cap: First 5 Rows in Mental Health Indicators Dataset 
+#| echo: false
+
+kable(head(mental_health_indicators,5))
+```
 
 ### Perceived Mental Health by Age Group
 The Perceived Mental Health by Age Group dataset spans from 2015 to 2022 and utilizes a consistent methodological framework to assess self-reported mental health. The data collection process involves standardized questionnaires distributed to a representative sample of Canadian adults across various age groups. This approach ensures that the data reflect a broad spectrum of the population, excluding those in full-time residence, on Indigenous reserves, or non-permanent residents, thus focusing on a generalizable sample of the Canadian populace.
@@ -87,34 +84,208 @@ In summary, the methodologies used by the Canadian Community Health Survey and o
 
 Our results are summarized in .
 
+## Overview
+
+
 ```{r}
 #| echo: false
 #| eval: true
 #| warning: false
 #| message: false
+#| label: fig-trend1
+#| fig-cap: Perceived mental health fair or poor in Canada, 2002-2022
 
-temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & Age == "Total, 12 years and over" & Sex == "Both sexes" & GEO == "Canada (excluding territories)")
+mhi <- filter(mental_health_indicators, Indicators == "Perceived mental health, fair or poor" & Age == "Total, 15 years and over" & Sex == "Both sexes" & GEO == "Canada")
+
+ag <- filter(age, Indicators == "Perceived mental health, fair or poor" & Age == "Total, 12 years and over" & Sex == "Both sexes" & GEO == "Canada (excluding territories)")
+
+temp <-
+  rbind(select(mhi,REF_DATE,VALUE),select(ag,REF_DATE,VALUE))
+
 ggplot(temp, aes(x=REF_DATE,y=VALUE))+
   geom_line()+
-  labs(x = "Year", y = "Percentage", title = "Perceived mental health, fair or poor, all people over 12 years old in Canada") +
-  theme_minimal()
+  geom_point()+
+  labs(x = "Year", y = "Percentage") +
+  theme_linedraw()
+
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-trend2
+#| fig-cap: Perceived mental health fair or poor in Canada
+
+temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Sociodemographic_characteristics  == "Total, 15 years and over" & Gender == "Total, all persons" & GEO == "Canada (excluding territories)")
+
+
+ggplot(temp, aes(x=REF_DATE,y=VALUE))+
+  geom_line(aes(group=1))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Year", y = "Percentage") +
+  theme_linedraw()
+
+```
+## By Province
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-trend3
+#| fig-cap: Perceived mental health fair or poor in Canada
+
+temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & Sex == "Both sexes", Age =="Total, 12 years and over")
+
+temp <-
+  temp|>
+  select(REF_DATE,GEO,VALUE)
+
+temp1 <-
+  group_by(temp, GEO) |>
+  summarise(variance = var(VALUE))
+
+ggplot(temp, aes(x= REF_DATE, y= VALUE, group = GEO, color = GEO))+
+  geom_line()+
+  theme_linedraw()
+
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-trend4
+#| fig-cap: Perceived mental health fair or poor in Canada
+
+temp <- filter(province, Indicators == "Fair or poor perceived mental health" & Gender == "Total, all persons")
+
+temp <-
+  temp|>
+  select(REF_DATE,GEO,VALUE)
+
+temp1 <-
+  group_by(temp, GEO) |>
+  summarise(variance = var(VALUE))
+
+ggplot(temp, aes(x= REF_DATE, y= VALUE, group = GEO, color = GEO))+
+  geom_line()+
+  theme_linedraw()
+
+```
+
+## By Gender
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-trend4
+#| fig-cap: Perceived mental health fair or poor in Canada
+
+temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & GEO == "Canada (excluding territories)"& Age == "Total, 12 years and over")
+
+
+temp1 <-
+  group_by(temp, Sex)
+
+colors <- c("Males" = "blue", "Females" = "green4","Both sexes" = "red")
+
+ggplot(temp, aes(x= REF_DATE, y= VALUE, group = Sex, color = Sex))+
+  geom_line()+
+  geom_point()+
+  scale_color_manual(values = colors) +
+  theme_linedraw()
 
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
-#| label: tbl-modelresults
-#| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
 #| warning: false
+#| message: false
+#| label: fig-trend2
+#| fig-cap: Perceived mental health fair or poor in Canada
 
-modelsummary::modelsummary(
-  list(
-    "First model" = first_model
-  ),
-  statistic = "mad",
-  fmt = 2
-)
+temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Sociodemographic_characteristics  == "Total, 15 years and over" & GEO == "Canada (excluding territories)")
+
+colors <- c("Men" = "blue", "Women" = "green4","Total, all persons" = "red")
+
+ggplot(temp, aes(x=REF_DATE,y=VALUE, group = Gender, color = Gender))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Year", y = "Percentage") +
+  scale_color_manual(values = colors) +
+  theme_linedraw()
+
+```
+## By Age
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-trend4
+#| fig-cap: Perceived mental health fair or poor in Canada
+
+temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & GEO == "Canada (excluding territories)" & Sex == "Both sexes")
+
+
+ggplot(temp, aes(x= REF_DATE, y= VALUE, group = Age, color = Age))+
+  geom_line()+
+  geom_point()+
+  theme_linedraw()
+
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-trend2
+#| fig-cap: Perceived mental health fair or poor in Canada
+
+temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Gender  == "Total, all persons" & GEO == "Canada (excluding territories)" & grepl('years',Sociodemographic_characteristics)& !grepl("Immigrants",Sociodemographic_characteristics))
+
+
+ggplot(temp, aes(x=REF_DATE,y=VALUE, group = Sociodemographic_characteristics , color = Sociodemographic_characteristics ))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Year", y = "Percentage") +
+  theme_linedraw()
+
+```
+
+## Others
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-trend2
+#| fig-cap: Perceived mental health fair or poor in Canada
+
+temp <- filter(sc, Indicators == "Fair or poor perceived mental health")
+
+temp <- drop_na(temp, VALUE)
+
+temp1 <- 
+  group_by(temp, GEO, Gender, Sociodemographic_characteristics) |>
+  summarise(avg = mean(VALUE))
+
+print(temp1[order(-temp1$avg),],n=10)
+
 ```
 
 # Discussion
