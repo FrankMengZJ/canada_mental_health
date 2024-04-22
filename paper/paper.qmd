@@ -82,11 +82,19 @@ In summary, the methodologies used by the Canadian Community Health Survey and o
 
 # Results
 
-Our results are summarized in .
+## Methodological Considerations
+
+Prior to examining the trends, it's crucial to note that the datasets used for this analysis were collected using different methodologies. Annual data up to 2020 required a distinct approach from the quarterly data collected during the pandemic's peak. To preserve the accuracy of the analysis, the results are presented in separate graphs corresponding to these differing collection frequencies.
 
 ## Overview
 
+The results from the analyzed datasets reveal significant trends in the mental health landscape across Canada. Initially, the data show a gentle increase in reported mental health concerns from the early 2000s up until 2010. Post-2010, there is a noticeable dip, followed by a steady climb in mental health issues leading up to 2015. However, the most striking feature of this trend is the sharp and substantial escalation in mental health concerns starting from around 2020, which corresponds with the onset of the COVID-19 pandemic.
 
+@fig-trend1 plots the percentage of individuals reporting mental health concerns from 2005 to the present. From 2005 to around 2015, the trajectory exhibits minor fluctuations with a gradual increase. However, in the years following 2015, there is a distinct upward surge, with the percentages almost doubling by 2020 and continuing to rise steeply. This dramatic increase highlights the profound impact that the pandemic has had on mental health, as isolation, stress, economic uncertainty, and health-related fears took a toll on the population.
+
+@fig-trend2 provides a more granular view of the recent period, showing quarterly data from 2021 through to mid-2023. This period captures the ongoing effects of the pandemic. The graph illustrates considerable volatility, with sharp increases and decreases in the percentage of individuals reporting mental health issues. These oscillations suggest that mental health responses are highly sensitive to the evolving circumstances of the pandemic, such as waves of infection, public health measures, and societal changes.
+
+Together, these graphs paint a picture of a population that experienced a significant increase in mental health concerns during a global crisis. The data underscore the need for ongoing monitoring and support to address mental health at a community and national level. The results section will further dissect these trends by province, gender, age, and within special populations to understand the nuances of this mental health challenge.
 ```{r}
 #| echo: false
 #| eval: true
@@ -132,12 +140,19 @@ ggplot(temp, aes(x=REF_DATE,y=VALUE))+
 ```
 ## By Province
 
+The results underscore the regional variations in mental health across Canadian provinces. In the graph illustrating data from 2016 to 2022, we see a common upward trend among all provinces, with a particularly steep increase following 2020, which aligns with the global onset of the COVID-19 pandemic. Prior to 2020, there were variations in the VALUE among provinces, but the gap between regions with the highest and lowest reported VALUE narrows as all regions trend upwards significantly in the subsequent years.
+
+Alberta, British Columbia, and Ontario exhibit some of the highest increases, suggesting a pronounced impact of the pandemic and its associated factors on mental health in these regions. However, it is notable that the trend is national, as even provinces like Prince Edward Island and Newfoundland and Labrador, which initially had some of the lowest reported VALUE, also show a sharp rise.
+
+The second graph, representing quarterly data from 2021 to 2023, provides a more nuanced picture with noticeable fluctuations within each province. These variations could be indicative of the changing conditions during the pandemic, such as waves of COVID-19 cases, differing provincial public health restrictions, and economic instability. While the Atlantic Region and the Prairies show a more volatile pattern, Quebec and Ontario demonstrate a more consistent increase over the observed quarters.
+
+Both graphs indicate that while the trend in mental health concerns is increasing across Canada, there are provincial specificities that suggest the impact of local factors. These could include economic conditions, the accessibility of mental health services, public health policies, and the social resilience of communities. The consistent rise across provinces post-2020, however, points to the overarching influence of the pandemic on mental health at a national level.
 ```{r}
 #| echo: false
 #| eval: true
 #| warning: false
 #| message: false
-#| label: fig-trend3
+#| label: fig-province1
 #| fig-cap: Perceived mental health fair or poor in Canada
 
 temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & Sex == "Both sexes", Age =="Total, 12 years and over")
@@ -162,7 +177,7 @@ ggplot(temp, aes(x= REF_DATE, y= VALUE, group = GEO, color = GEO))+
 #| eval: true
 #| warning: false
 #| message: false
-#| label: fig-trend4
+#| label: fig-province2
 #| fig-cap: Perceived mental health fair or poor in Canada
 
 temp <- filter(province, Indicators == "Fair or poor perceived mental health" & Gender == "Total, all persons")
@@ -183,6 +198,14 @@ ggplot(temp, aes(x= REF_DATE, y= VALUE, group = GEO, color = GEO))+
 
 ## By Gender
 
+
+The gender-based analysis reveals telling trends in the self-reported mental health status among Canadians, distinguishing between those who consider their mental health to be fair or poor.
+
+From 2016 to 2022, the first graph shows an upward trajectory for both males and females, with a notably sharper rise for females. By 2022, the percentage of females reporting their mental health as fair or poor substantially exceeds that of males, suggesting gender-specific impacts. The increase that coincides with the pandemic period may reflect the compounded stressors that women have faced, including potential increases in caregiving responsibilities, economic pressures, or other psychosocial factors exacerbated by the pandemic.
+
+In the quarterly data from 2021 to mid-2023, depicted in the second graph, the fluctuations are more pronounced, with both genders experiencing variability in their mental health reporting. The trend for women is characterized by higher peaks, indicating more pronounced shifts in mental health status as compared to men. This volatility could be influenced by the ebb and flow of pandemic-related stresses and public health measures.
+
+For both sexes combined, the overall trend is less erratic, pointing to the importance of disaggregating data by gender to fully capture the differential impacts on mental health. These findings highlight the significance of gender-responsive mental health resources and interventions, particularly in addressing the unique challenges that have emerged during the pandemic.
 ```{r}
 #| echo: false
 #| eval: true
@@ -228,6 +251,12 @@ ggplot(temp, aes(x=REF_DATE,y=VALUE, group = Gender, color = Gender))+
 
 ```
 ## By Age
+The first graph spans from 2016 to 2022 and illustrates the percentage of people within various age brackets reporting their mental health as fair or poor. A distinct trend is visible across all age groups, showing an increase in self-reported fair or poor mental health, with a marked acceleration from 2020 onwards, likely due to the COVID-19 pandemic. The oldest age group, those aged '65 years and over,' displays the most pronounced rise, indicating this demographic may have been particularly impacted during these years. Meanwhile, younger age groups also show a worrying increase, albeit less steep, suggesting widespread implications across generations.
+
+The second graph, which provides quarterly data from early 2021 to mid-2023, presents a more granular view, capturing the fluctuations within and between age groups during the pandemic. Notably, the '15 to 24 years' and '25 to 34 years' categories exhibit significant volatility, with peaks and valleys that could correlate with periods of pandemic waves, social restrictions, and economic impacts. The '65 years and over' group continues to report higher rates of fair or poor mental health, although with less fluctuation, possibly reflecting ongoing concerns about health risks and social isolation among seniors.
+
+These age-focused graphs suggest that mental health challenges have been a critical concern for all age groups, with particular implications for the most vulnerable populations. The rise in reported mental health issues among the youth and elderly underscores the need for age-specific mental health services and support systems tailored to their unique circumstances and stressors. The data call for continued monitoring and interventions to address the mental health repercussions of the pandemic across all age demographics.
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -268,6 +297,15 @@ ggplot(temp, aes(x=REF_DATE,y=VALUE, group = Sociodemographic_characteristics , 
 
 ## Others
 
+The examination of mental health within specific demographic segments reveals significant disparities. The most affected population, with 48.4%, are LGBTQ2+ women, followed by the total population of LGBTQ2+ individuals at 44.5%. LGBTQ2+ men report a lower percentage at 39.0%, indicating a gender-related variance within the LGBTQ2+ community. These figures highlight the substantial mental health challenges faced by LGBTQ2+ individuals, which may be attributed to factors such as discrimination, stigma, and lack of targeted support services.
+
+Southeast Asian women report a 39% rate of fair or poor mental health, indicating that cultural and possibly immigration-related factors might contribute to mental health concerns. This suggests the need for culturally sensitive mental health resources that are attuned to the unique experiences of minority groups.
+
+Young women aged 15 to 24 years report a rate of 36.3%, reflecting the particular vulnerabilities of this age group, which may include the pressures of social media, academic stress, and transitions into the workforce or higher education.
+
+Women with disabilities or long-term conditions report a 34.7% rate, with the total population of persons with disabilities reporting 32.4%. These figures underscore the intersectional nature of mental health, where disability and gender can compound the challenges faced by individuals, highlighting the critical need for accessible mental health services that accommodate physical and social barriers.
+
+Métis women, Indigenous women, and First Nations women report similar rates of around 30-31%, indicating the pressing mental health concerns among Indigenous populations. Historical context, ongoing systemic inequalities, and intergenerational trauma are likely contributing factors and underscore the importance of providing culturally competent care and support.
 ```{r}
 #| echo: false
 #| eval: true
