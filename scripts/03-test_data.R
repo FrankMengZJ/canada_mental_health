@@ -19,15 +19,60 @@ sociodemographic_characteristics <- read_parquet(file = "data/analysis_data/soci
 
 #### Test data ####
 
-age
-distinct(age,REF_DATE)
+
+## Test age dataset
+
+age$Age |> min() >= 0
+
+age$REF_DATE |> min() == 2015
+age$REF_DATE |> max() == 2022
+
+distinct(age,Sex)
+
+distinct(age, GEO)
+
 distinct(age, Indicators)
 
-filter(mental_health_indicators,Indicators == "Perceived mental health, fair or poor", GEO == "Canada", Age == "Total, 15 years and over", Sex == "Both sexes")
 
-filter(age, Indicators == "Perceived mental health, fair or poor" & Age == "Total, 12 years and over" & Sex == "Both sexes" & GEO == "Canada (excluding territories)")
+## Test mental_health_indicators dataset
 
-filter(province, GEO == "Canada (excluding territories)", Gender == "Total, all persons", Indicators == "Fair or poor perceived mental health")
+mental_health_indicators$REF_DATE |> min() == 2002
+mental_health_indicators$REF_DATE |> max() == 2012
 
-filter(sociodemographic_characteristics, GEO == "Canada (excluding territories)", Gender == "Total, all persons", Sociodemographic_characteristics == "Total, 15 years and over", Indicators == "Fair or poor perceived mental health")
+mental_health_indicators$VALUE |> min() >= 0
 
+distinct(mental_health_indicators,Sex)
+
+distinct(mental_health_indicators,GEO)
+
+distinct(mental_health_indicators,Age)
+
+
+## Test province dataset
+
+as.Date(paste(province$REF_DATE,"-01", sep="")) |> min() == "2021-04-01"
+as.Date(paste(province$REF_DATE,"-01", sep="")) |> max() == "2023-07-01"
+
+province$VALUE |> min() >= 0
+
+distinct(province, Gender)
+
+distinct(province, GEO)
+
+distinct(province, Indicators)
+
+
+## Test sociodemographic_characteristics dataset
+
+as.Date(paste(sociodemographic_characteristics$REF_DATE,"-01", sep="")) |> min() == "2021-04-01"
+as.Date(paste(sociodemographic_characteristics$REF_DATE,"-01", sep="")) |> max() == "2023-07-01"
+
+sociodemographic_characteristics$VALUE |> min() >= 0
+
+distinct(sociodemographic_characteristics, GEO)
+
+distinct(sociodemographic_characteristics, Gender)
+
+distinct(sociodemographic_characteristics, Indicators)
+
+distinct(sociodemographic_characteristics, Sociodemographic_characteristics)
