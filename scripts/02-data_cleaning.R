@@ -23,6 +23,7 @@ mental_health_indicators <-
 mental_health_indicators <-
   mental_health_indicators |>
   rename(Age='Age group') |>
+  filter(!is.na(VALUE)) |>
   select(REF_DATE, GEO, Age, Sex, Indicators, VALUE)
 
 # Clean 'Perceived mental health, by age group' dataset
@@ -43,7 +44,7 @@ province <-
 sc <- 
   sc |>
   rename(Sociodemographic_characteristics = 'Sociodemographic characteristics' )|>
-  filter(Statistics == 'Percentage of persons') |>
+  filter(Statistics == 'Percentage of persons' & !is.na(sc$VALUE)) |>
   select(REF_DATE, GEO, Gender, Sociodemographic_characteristics, Indicators, VALUE)
   
 
@@ -52,8 +53,3 @@ write_parquet(x=mental_health_indicators,sink="data/analysis_data/mental_health_
 write_parquet(x=province,sink="data/analysis_data/province.parquet")
 write_parquet(x=sc,sink="data/analysis_data/sociodemographic_characteristics.parquet")
 write_parquet(x=age,sink="data/analysis_data/age.parquet")
-
-write_csv(mental_health_indicators,"mental_health_indicators.csv")
-write_csv(province,"province.csv")
-write_csv(sc,"sc.csv")
-write_csv(age,"age.csv")
