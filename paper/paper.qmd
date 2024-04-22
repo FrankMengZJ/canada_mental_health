@@ -211,7 +211,7 @@ For both sexes combined, the overall trend is less erratic, pointing to the impo
 #| eval: true
 #| warning: false
 #| message: false
-#| label: fig-trend4
+#| label: fig-gender1
 #| fig-cap: Perceived mental health fair or poor in Canada
 
 temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & GEO == "Canada (excluding territories)"& Age == "Total, 12 years and over")
@@ -235,7 +235,7 @@ ggplot(temp, aes(x= REF_DATE, y= VALUE, group = Sex, color = Sex))+
 #| eval: true
 #| warning: false
 #| message: false
-#| label: fig-trend2
+#| label: fig-gender2
 #| fig-cap: Perceived mental health fair or poor in Canada
 
 temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Sociodemographic_characteristics  == "Total, 15 years and over" & GEO == "Canada (excluding territories)")
@@ -262,7 +262,7 @@ These age-focused graphs suggest that mental health challenges have been a criti
 #| eval: true
 #| warning: false
 #| message: false
-#| label: fig-trend4
+#| label: fig-age1
 #| fig-cap: Perceived mental health fair or poor in Canada
 
 temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & GEO == "Canada (excluding territories)" & Sex == "Both sexes")
@@ -281,7 +281,7 @@ ggplot(temp, aes(x= REF_DATE, y= VALUE, group = Age, color = Age))+
 #| eval: true
 #| warning: false
 #| message: false
-#| label: fig-trend2
+#| label: fig-age2
 #| fig-cap: Perceived mental health fair or poor in Canada
 
 temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Gender  == "Total, all persons" & GEO == "Canada (excluding territories)" & grepl('years',Sociodemographic_characteristics)& !grepl("Immigrants",Sociodemographic_characteristics))
@@ -311,7 +311,7 @@ Métis women, Indigenous women, and First Nations women report similar rates of 
 #| eval: true
 #| warning: false
 #| message: false
-#| label: fig-trend2
+#| label: fig-other
 #| fig-cap: Perceived mental health fair or poor in Canada
 
 temp <- filter(sc, Indicators == "Fair or poor perceived mental health")
