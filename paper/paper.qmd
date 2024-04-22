@@ -1,6 +1,5 @@
 ---
 title: "Navigating Through Crisis: The Influence of COVID-19 on Canada’s Mental Health Problem"
-subtitle: "My subtitle if needed"
 author: 
   - Zijun Meng
 thanks: "Code and data are available at: https://github.com/FrankMengZJ/canada_mental_health/"
