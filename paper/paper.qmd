@@ -282,9 +282,10 @@ temp <- drop_na(temp, VALUE)
 
 temp1 <- 
   group_by(temp, GEO, Gender, Sociodemographic_characteristics) |>
-  summarise(avg = mean(VALUE))
+  summarise(Average = mean(VALUE))
 
-print(temp1[order(-temp1$avg),],n=10)
+temp2 <- temp1[order(-temp1$Average),]
+kable(head(temp2,15))
 
 ```
 
