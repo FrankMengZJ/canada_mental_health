@@ -100,7 +100,7 @@ Together, these graphs paint a picture of a population that experienced a signif
 #| warning: false
 #| message: false
 #| label: fig-trend1
-#| fig-cap: Perceived mental health fair or poor in Canada, 2002-2022
+#| fig-cap: Trends of Reported Fair or Poor Mental Health in Canada (2002-2022)
 
 mhi <- filter(mental_health_indicators, Indicators == "Perceived mental health, fair or poor" & Age == "Total, 15 years and over" & Sex == "Both sexes" & GEO == "Canada")
 
@@ -124,7 +124,7 @@ ggplot(temp, aes(x=REF_DATE,y=VALUE))+
 #| warning: false
 #| message: false
 #| label: fig-trend2
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Trends of Reported Fair or Poor Mental Health in Canada (2021-2023)
 
 temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Sociodemographic_characteristics  == "Total, 15 years and over" & Gender == "Total, all persons" & GEO == "Canada (excluding territories)")
 
@@ -152,7 +152,7 @@ Both graphs indicate that while the trend in mental health concerns is increasin
 #| warning: false
 #| message: false
 #| label: fig-province1
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Provincial Comparison of Reported Fair or Poor Mental Health in Canada (2015-2022)
 
 temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & Sex == "Both sexes", Age =="Total, 12 years and over")
 
@@ -177,7 +177,8 @@ ggplot(temp, aes(x= REF_DATE, y= VALUE, group = GEO, color = GEO))+
 #| warning: false
 #| message: false
 #| label: fig-province2
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Provincial Comparison of Reported Fair or Poor Mental Health in Canada (2021-2023)
+
 
 temp <- filter(province, Indicators == "Fair or poor perceived mental health" & Gender == "Total, all persons")
 
@@ -211,7 +212,7 @@ For both sexes combined, the overall trend is less erratic, pointing to the impo
 #| warning: false
 #| message: false
 #| label: fig-gender1
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Gender Differences in Reported Fair or Poor Mental Health in Canada (2015-2022)
 
 temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & GEO == "Canada (excluding territories)"& Age == "Total, 12 years and over")
 
@@ -235,7 +236,7 @@ ggplot(temp, aes(x= REF_DATE, y= VALUE, group = Sex, color = Sex))+
 #| warning: false
 #| message: false
 #| label: fig-gender2
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Gender Differences in Reported Fair or Poor Mental Health in Canada (2021-2023)
 
 temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Sociodemographic_characteristics  == "Total, 15 years and over" & GEO == "Canada (excluding territories)")
 
@@ -262,7 +263,7 @@ These age-focused graphs suggest that mental health challenges have been a criti
 #| warning: false
 #| message: false
 #| label: fig-age1
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Age-Related Trends in Reported Fair or Poor Mental Health in Canada (2015-2022)
 
 temp <- filter(age, Indicators == "Perceived mental health, fair or poor" & GEO == "Canada (excluding territories)" & Sex == "Both sexes")
 
@@ -281,7 +282,7 @@ ggplot(temp, aes(x= REF_DATE, y= VALUE, group = Age, color = Age))+
 #| warning: false
 #| message: false
 #| label: fig-age2
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Age-Related Trends in Reported Fair or Poor Mental Health in Canada (2021-2023)
 
 temp <- filter(sc, Indicators == "Fair or poor perceived mental health" & Gender  == "Total, all persons" & GEO == "Canada (excluding territories)" & grepl('years',Sociodemographic_characteristics)& !grepl("Immigrants",Sociodemographic_characteristics))
 
@@ -311,7 +312,7 @@ Métis women, Indigenous women, and First Nations women report similar rates of 
 #| warning: false
 #| message: false
 #| label: fig-other
-#| fig-cap: Perceived mental health fair or poor in Canada
+#| fig-cap: Mental Health Disparities Among Special Populations in Canada
 
 temp <- filter(sc, Indicators == "Fair or poor perceived mental health")
 
@@ -325,20 +326,32 @@ temp2 <- temp1[order(-temp1$Average),]
 kable(head(temp2,15))
 
 ```
-
 # Discussion
 
-## First discussion point {#sec-first-point}
+## Evaluation of Research Goals
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
+In this paper, we embarked on a nuanced exploration of mental health in Canada over two critical decades, employing datasets that encapsulate the pre and intra-pandemic eras. Through this retrospective lens, we've charted the evolution of public perceptions of mental health and the stark rise in the prevalence of fair or poor mental health reports, particularly post-2020. The data delineate a landscape where mental health has become a prominent concern, reflecting both the immediate shock of the pandemic and underlying systemic vulnerabilities.
 
-## Second discussion point
+## New Perspectives on Mental Health in Canada
 
-## Third discussion point
+Our findings illuminate the heightened mental health challenges faced by Canadians during the COVID-19 pandemic. A significant revelation is the disparate impact across demographics, with particular strains on LGBTQ2+ communities, women, and the youth. These insights underscore the pandemic's multifaceted toll beyond the immediate health implications, permeating social, economic, and personal domains.
 
-## Weaknesses and next steps
+## Intersectional Impact and Systemic Factors
 
-Weaknesses and next steps should also be included.
+The data also cast light on the intersectional nature of mental health challenges, revealing how gender, sexuality, age, and ethnicity intersect to influence mental well-being. For instance, the elevated rates of mental health concerns among LGBTQ2+ populations signal a distressing reality of social stressors compounded by a health crisis. This prompts a discussion on systemic issues like discrimination and access to care that may exacerbate such disparities.
+
+## Limitations and Considerations
+
+Notwithstanding these insights, the study has its constraints. The varied data collection methodologies over time introduce complexity in direct comparisons. Additionally, self-reported data on mental health may be influenced by evolving societal attitudes towards mental health, potentially impacting trend analysis.
+
+## Pathways for Future Research
+
+Going forward, a longitudinal approach to data collection would be invaluable in tracing the long-term impact of the pandemic on mental health. Moreover, in-depth qualitative research could enrich our understanding of the lived experiences behind the statistics. Policymaking should pivot on these findings to provide targeted mental health support where it is most needed.
+
+# Conclusion
+
+The conversation on mental health, while brought into sharp focus by the pandemic, is far from new. However, our study reaffirms that mental health is an enduring public health priority. As we move towards recovery, let this research serve as a clarion call to policymakers and healthcare providers to fortify mental health support systems, ensuring they are robust, inclusive, and responsive to the evolving needs of the Canadian populace.
+
 
 \newpage
 
