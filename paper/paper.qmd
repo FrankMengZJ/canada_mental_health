@@ -28,7 +28,7 @@ sc <- read_parquet(file = here("data/analysis_data/sociodemographic_characterist
 
 # Introduction
 
-The COVID-19 pandemic did not only threaten people's physical health but also potentially harm their mental health. In Canada, the impact of the pandemic on mental health has been profound. The Centre for Addiction and Mental Health [@CAMH] has identified a significant increase in mental health problems among Canadians, noting that the pandemic has led to unprecedented levels of anxiety and depression . Additionally, @PHAC reports on the elevated symptoms of anxiety and depression during the pandemic, further underscoring the need for comprehensive data analysis on this issue .
+The COVID-19 pandemic has not only threatened people's physical health but also potentially harmed their mental health. In Canada, the impact of the pandemic on mental health has been profound. The Centre for Addiction and Mental Health [@CAMH] has identified a significant increase in mental health problems among Canadians, noting that the pandemic has led to unprecedented levels of anxiety and depression . Additionally, @PHAC reports on the elevated symptoms of anxiety and depression during the pandemic, further underscoring the need for comprehensive data analysis on this issue .
 
 This paper aims to provide a detailed analysis of the changing situation of mental health in Canada by using four datasets spanning from 2002 to 2023. The focus is on perceived mental health statuses across various demographic segments, including age, gender, and province. The primary objective is to understand how perceptions of mental health have evolved over the past two decades and how these perceptions have been impacted by the COVID-19 pandemic.
 
@@ -48,7 +48,7 @@ The estimand is the difference in the probability of reporting mental health as 
 ## Overview of Datasets
 This study uses four datasets from Statistics Canada, each providing valuable insights into the mental health perceptions of Canadians. These datasets are important for understanding the evolution of mental health across different demographics and geographical regions from 2002 to 2023.
 
-The datasets contain some variables in common, including "REF_DATE" for time, "GEO" for location,  "Sex" or "Gender", alongside "Indicators" and "VALUE" which detail specific mental health metrics and their quantitative assessments. Apart from these, "Age" can be found in the Mental Health Indicators Dataset and The Perceived Mental Health by Age Group Dataset. The Perceived Mental Health by Gender and Sociodemographic Characteristics Dataset has a special variable "Sociodemographic_characteristics", which includes a range of detailed factors such as age, identities, race etc.
+The datasets share several common variables, including 'REF_DATE' for time, 'GEO' for location, and 'Sex' or 'Gender', along with 'Indicators' and 'VALUE', which detail specific mental health metrics and their quantitative assessments. Apart from these, "Age" can be found in the Mental Health Indicators Dataset and The Perceived Mental Health by Age Group Dataset. The Perceived Mental Health by Gender and Sociodemographic Characteristics Dataset has a special variable "Sociodemographic_characteristics", which includes a range of detailed factors such as age, identities, race etc.
 
 
 ### Mental Health Indicators Dataset (2002 and 2012)
@@ -126,7 +126,7 @@ Prior to examining the trends, it's crucial to note that the datasets used for t
 
 ## Overview
 
-The results from the analyzed datasets reveal significant trends in mental health problems across Canada. Initially, the data show a gentle increase in reported mental health concerns from the early 2000s up until 2010. Post-2010, there is a noticeable dip, followed by a steady climb in mental health issues leading up to 2015. However, the most striking feature of this trend is the sharp increase in mental health concerns starting from around 2020, which corresponds with the onset of the COVID-19 pandemic.
+The analysis of these datasets reveals significant trends in mental health issues across Canada. Initially, the data show a gentle increase in reported mental health concerns from the early 2000s up until 2010. Post-2010, there is a noticeable dip, followed by a steady climb in mental health issues leading up to 2015. However, the most striking feature of this trend is the sharp increase in mental health concerns starting from around 2020, which corresponds with the onset of the COVID-19 pandemic.
 
 @fig-trend1 plots the percentage of individuals reporting mental health concerns from 2005 to the present. From 2005 to around 2015, there were minor fluctuations with a gradual increase. However, in the years following 2015, there is a distinct upward surge, with the percentages almost doubling by 2020 and continuing to rise steeply. This dramatic increase highlights the impact that the pandemic has had on mental health, as isolation, stress, economic uncertainty, and health-related fears affect the population.
 
@@ -390,15 +390,15 @@ Our findings reviewed the mental health challenges faced by Canadians before and
 
 ## Intersectional Impact and Systemic Factors
 
-The data also discussed the intersectional nature of mental health challenges, revealing how gender, sexuality, age, and ethnicity intersect to influence mental well-being. For instance, the increasing rates of mental health concerns among LGBTQ2+ populations stated the reality of social stressors. This leads to a discussion on systemic issues like discrimination and access to care.
+The data also discuss the intersectional nature of mental health challenges, revealing how gender, sexuality, age, and ethnicity intersect to influence mental well-being. For instance, the increasing rates of mental health concerns among LGBTQ2+ populations stated the reality of social stressors. This leads to a discussion on systemic issues like discrimination and access to care.
 
 ## Limitations and Considerations
 
-Despite these insights, the study has its constraints. The varied data collection methodologies over time introduce complexity in direct comparisons. Additionally, self-reported data on mental health may be influenced by evolving societal attitudes toward mental health, potentially impacting trend analysis.
+Despite these insights, the study faces certain constraints. Varied data collection methodologies over time introduce complexities in making direct comparisons. Moreover, self-reported data on mental health may be influenced by evolving societal attitudes, which could potentially impact trend analyses. Furthermore, the quantitative focus might not fully capture the complexities of individuals' mental health experiences, underscoring the need for qualitative approaches to deepen our understanding. These limitations indicate that future research should incorporate methodological enhancements to ensure a more comprehensive analysis.
 
 ## Future Research
 
-For future research, to comprehensively assess the lasting impact of the COVID-19 pandemic on mental health, researchers could use longitudinal studies. These studies would track individuals over extended periods, providing insights into the long-term effects of the pandemic on various demographic groups. 
+For future research, researchers could use longitudinal studies to comprehensively assess the lasting impact of the COVID-19 pandemic on mental health. These studies would track individuals over extended periods, providing insights into the long-term effects of the pandemic on various demographic groups. 
 
 Another important area for future research is the evaluation of mental health policies implemented. Analyzing the effectiveness of these policies in real time could provide valuable feedback for policymakers, allowing for adjustments and more targeted interventions. 
 
