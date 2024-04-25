@@ -1,11 +1,10 @@
 #### Preamble ####
-# Purpose: Cleans the raw plane data recorded by two observers..... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 6 April 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Cleans the raw data in the 4 datasets.
+# Author: Zijun Meng
+# Date: 24 April 2024
+# Contact: zijun.meng@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: Download the datasets and put them in the designated location.
 
 #### Workspace setup ####
 library(tidyverse)
@@ -26,6 +25,7 @@ mental_health_indicators <-
   filter(!is.na(VALUE)) |>
   select(REF_DATE, GEO, Age, Sex, Indicators, VALUE)
 
+
 # Clean 'Perceived mental health, by age group' dataset
 age <-
   age |>
@@ -33,8 +33,8 @@ age <-
   rename(Age='Age group') |>
   select(REF_DATE, GEO, Age, Sex, Indicators, VALUE)
 
-# Clean 'Perceived mental health, by gender and other selected sociodemographic characteristics' dataset
 
+# Clean 'Perceived mental health, by gender and other selected sociodemographic characteristics' dataset
 province <-
   province |>
   filter(Statistics == 'Percentage of persons') |>

@@ -1,26 +1,15 @@
 #### Preamble ####
-# Purpose: Downloads and saves the data from [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Downloads and saves the data
+# Author: Zijun Meng
+# Date: 24 April 2024
+# Contact: zijun.meng@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
 
 
-#### Workspace setup ####
-library(opendatatoronto)
-library(tidyverse)
-# [...UPDATE THIS...]
 
 #### Download data ####
-# [...ADD CODE HERE TO DOWNLOAD...]
+# Download data from https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a, https://doi.org/10.25318/4510008001-eng, 
+# https://doi.org/10.25318/4510007901-eng and https://doi.org/10.25318/1310009601-eng, theb put the files in "data/raw_data"
 
-
-
-#### Save data ####
-# [...UPDATE THIS...]
-# change the_raw_data to whatever name you assigned when you downloaded it.
-write_csv(the_raw_data, "inputs/data/raw_data.csv") 
 
          
