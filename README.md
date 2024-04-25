@@ -1,8 +1,8 @@
-# Mental Health Problems in Canada
+# Influence of COVID-19 on Canada’s Mental Health Problem
 
 ## Overview
 
-This repo explores the relationship between mental health problems and mental health support in Canada. 
+This repo explores how COVID-19 influences  Canada’s mental health problem.
 
 To use this folder, click the green "Code" button", then "Download ZIP". Move the downloaded folder to where you want to work on your own computer, and then modify it to suit.
 
@@ -10,7 +10,7 @@ To use this folder, click the green "Code" button", then "Download ZIP". Move th
 
 The repo is structured as:
 
--   `data/raw_data` contains the raw data as obtained from *Change to DOI later* https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a and https://www.statcan.gc.ca/en/start.
+-   `data/raw_data` contains the raw data as obtained from  https://open.canada.ca/data/en/dataset/a9863f45-6a1a-4277-ae0f-2d9cb61d413a and https://www.statcan.gc.ca/en/start.
 -   `data/analysis_data` contains the cleaned dataset that was constructed.
 -   `model` contains fitted models. 
 -   `other` contains relevant literature, details about LLM chat interactions, and sketches.
@@ -25,4 +25,4 @@ The Mental health indicators data was obtained from https://open.canada.ca/data/
 
 ## Statement on LLM usage
 
-ChatGPT was used for finetuning and proofreading.
+ChatGPT was used for finetuning and proofreading.The entire chat history is available in inputs/llms/usage.txt.
